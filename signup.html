@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up for Vox</title>
+    <style>
+        body {
+            margin: 0 50px;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: url('Images/subg.jpg') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start; /* Updated to move content to the left */
+            color: #fff;
+        }
+
+        .signup-container {
+            background: rgba(235, 11, 11, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(76, 3, 3, 0.1);
+            width: 400px;
+            text-align: center;
+            margin: 0; /* Updated margin to move container to the left */
+        }
+
+        .signup-container h2 {
+            margin-bottom: 20px;
+        }
+
+        .signup-form {
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+        }
+
+        .signup-form input,
+        .signup-form select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            color: #333;
+        }
+
+        .signup-form button {
+            width: 100%;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            background-color: #4CAF50; /* Green */
+            color: #fff;
+            margin-bottom: 10px; /* Add margin-bottom for spacing */
+        }
+
+        .message {
+            color: #4CAF50; /* Green */
+            font-weight: bold;
+        }
+
+        /* Add styles for avatar selection */
+        .avatar-selection {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 15px;
+        }
+
+        /* Add styles for avatar images */
+        .avatar-selection img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        /* Add styles for icons */
+        .icon {
+            margin-right: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="signup-container">
+        <h2>Create your Voxly Account</h2>
+        <div class="avatar-selection">
+            <label>Select Your Avatar:</label>
+            <img src="Images/judy-hopps.jpg" alt="Judy Hopps" onclick="selectAvatar('Judy Hopps')">
+            <img src="Images/nick-wilde.jpg" alt="Nick Wilde" onclick="selectAvatar('Nick Wilde')">
+        </div>
+        <form class="signup-form" onsubmit="return validateForm()">
+            <input type="text" id="firstName" placeholder="First Name" required>
+            <input type="text" id="lastName" placeholder="Last Name" required>
+            <input type="date" id="dob" placeholder="Date of Birth" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="text" id="userId" placeholder="User ID" required>
+
+            <!-- Password and Confirm Password with rules -->
+            <input type="password" id="password" placeholder="Password" pattern="(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-zA-Z]).{8,}" required>
+            <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+
+            <button type="submit">Sign Up</button>
+        </form>
+        <p class="message" id="success-message"></p>
+    </div>
+
+    <script>
+        function validateForm() {
+            var password = document.getElementById('password').value;
+            var confirmPassword = document.getElementById('confirmPassword').value;
+
+            // Password and Confirm Password must match
+            if (password !== confirmPassword) {
+                alert('Password and Confirm Password must match.');
+                return false;
+            }
+
+            // Add your additional validation logic here
+
+            // Display success message
+            document.getElementById('success-message').innerText = 'Welcome aboard!';
+            return true;
+        }
+
+        function selectAvatar(avatarName) {
+            // Add logic to handle avatar selection based on avatarName
+            console.log('Selected Avatar:', avatarName);
+        }
+    </script>
+</body>
+
+</html>

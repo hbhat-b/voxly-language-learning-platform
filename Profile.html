@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <style>
+        /* Your existing styles remain unchanged */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: url('Images/profilebg.png') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+        }
+
+        #profile-container {
+            background-color: #D0784C;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            max-width: 400px;
+            width: 80%;
+            text-align: center;
+            padding: 20px;
+            margin-left: 50%;
+        }
+
+        #avatar {
+            width: 100px;
+            height: auto;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        #user-details {
+            padding: 20px;
+            text-align: left;
+            color: #0e0b0b;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        p {
+            margin-bottom: 10px;
+            color: #0c0b0b;
+        }
+
+        #edit-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        #edit-form {
+            display: none;
+            padding: 20px;
+            text-align: left;
+        }
+
+        #edit-form input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        #save-btn {
+            background-color: #4CAF50;
+            color: rgb(228, 221, 221);
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #gender-options {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        #gender-options label,
+        #gender-options input {
+            display: inline-block;
+        }
+
+        /* Additional styles for displaying user information */
+        #user-info-container {
+            margin-top: 20px;
+        }
+
+        #user-info-container p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="profile-container">
+        <!-- Assigning the user's chosen avatar dynamically -->
+        <img id="avatar" src="Images/nick-wilde.jpg" alt="Avatar">
+        <div id="user-details">
+            <p>Name: Jane doe</p>
+            <p>Email: user@gmail.com</p>
+            <p>Date of Birth: 01/01/1990</p>
+            <p>Gender:
+                <label for="male">Male</label>
+                <input type="radio" id="male" name="gender" value="Male">
+
+                <label for="female">Female</label>
+                <input type="radio" id="female" name="gender" value="Female">
+
+                <label for="others">Others</label>
+                <input type="radio" id="others" name="gender" value="Others">
+            </p>
+        </div>
+        <button id="edit-btn" onclick="toggleEditForm()">Edit</button>
+
+        <form id="edit-form">
+            <input type="text" id="edit-name" placeholder="New Name">
+            <input type="email" id="edit-email" placeholder="New Email">
+            <input type="date" id="edit-dob" placeholder="New Date of Birth">
+
+            <div id="gender-options">
+                <label for="male">Male</label>
+                <input type="radio" id="male" name="gender" value="Male">
+
+                <label for="female">Female</label>
+                <input type="radio" id="female" name="gender" value="Female">
+
+                <label for="others">Others</label>
+                <input type="radio" id="others" name="gender" value="Others">
+            </div>
+
+            <button type="button" id="save-btn" onclick="saveChanges()">Save</button>
+        </form>
+
+        <!-- Additional container to display user information -->
+        <div id="user-info-container"></div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Assuming userAvatarURL is the variable storing the user's chosen avatar URL
+            const userAvatarURL = "Images/nick-wilde.jpg"; // Replace with actual URL
+            document.getElementById('avatar').src = userAvatarURL;
+        });
+
+        function toggleEditForm() {
+            const editForm = document.getElementById('edit-form');
+            editForm.style.display = editForm.style.display === 'none' || editForm.style.display === '' ? 'block' : 'none';
+        }
+
+        function saveChanges() {
+            // Add logic to save changes to the backend and update the UI
+            const newName = document.getElementById('edit-name').value;
+            const newEmail = document.getElementById('edit-email').value;
+            const newDOB = document.getElementById('edit-dob').value;
+
+            // Get the selected gender
+            const genderRadios = document.getElementsByName('gender');
+            let selectedGender = '';
+            for (const radio of genderRadios) {
+                if (radio.checked) {
+                    selectedGender = radio.value;
+                    break;
+                }
+            }
+
+            // Add logic to update the UI with the new details (e.g., using innerHTML)
+            document.getElementById('user-details').innerHTML = `
+                <h2>${newName}</h2>
+                <p>Email: ${newEmail}</p>
+                <p>Date of Birth: ${newDOB}</p>
+                <p>Gender: ${selectedGender}</p>
+            `;
+
+            // Display user information in the additional container
+            document.getElementById('user-info-container').innerHTML = `
+                <p>Name: ${newName}</p>
+                <p>Email: ${newEmail}</p>
+                <p>Gender: ${selectedGender}</p>
+            `;
+
+            // Hide the edit form after saving changes
+            document.getElementById('edit-form').style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>

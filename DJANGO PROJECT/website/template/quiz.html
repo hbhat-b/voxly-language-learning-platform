@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Page</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #ee9569;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        header img {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            height: 50px;
+            width: auto;
+            border-radius: 50%;
+            border: 4px solid rgb(12, 12, 12);
+        }
+
+        .flashcard-container {
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 19px;
+            overflow: hidden;
+            max-width: 400px;
+            width: 80%;
+            text-align: center;
+            padding: 20px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .flashcard {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 250px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            background-color: #ecf0f1;
+            margin-bottom: 20px;
+        }
+
+        .flashcard input {
+            margin-top: 10px;
+        }
+
+        .flashcard.active {
+            display: flex;
+        }
+
+        .flashcard p,
+        .flashcard label {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .flashcard label + label {
+            margin-top: 5px;
+        }
+
+        .flashcard .correct-answer {
+            color: green;
+        }
+
+        button {
+            background-color: #2e80cc;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #27ae60;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <!-- Fox icon in the header -->
+        <img src="D:\Voxly2\Images\fox.jpg" width="30px" height="30px" alt="Fox Icon" />
+    </header>
+
+    <!-- Flashcard container -->
+    <div class="flashcard-container">
+        <!-- Flashcard 1 -->
+        <div class="flashcard active" onclick="flipCard(1)">
+            <!-- Question -->
+            <p>1. What is the plural form of "child"? </p>
+
+            <!-- Answer choices -->
+            <input type="radio" name="q1" value="childs" onclick="checkAnswer(1, 'childs')">childs
+            <input type="radio" name="q1" value="children" onclick="checkAnswer(1, 'children')">children
+            <input type="radio" name="q1" value="child" onclick="checkAnswer(1, 'child')">child
+
+            <!-- Correct answer label -->
+            <label id="answer1" class="correct-answer" style="display: none;">Correct Answer: children </label>
+        </div>
+
+        <!-- Flashcard 2 -->
+        <div class="flashcard" onclick="flipCard(2)">
+            <!-- Question -->
+            <p>2. Which of the following words is a synonym for "happy"?</p>
+
+            <!-- Answer choices -->
+            <input type="radio" name="q2" value="sad" onclick="checkAnswer(2, 'sad')">sad
+            <input type="radio" name="q2" value="joyful" onclick="checkAnswer(2, 'joyful')">joyful
+            <input type="radio" name="q2" value="angry" onclick="checkAnswer(2, 'angry')">angry
+
+            <!-- Correct answer label -->
+            <label id="answer2" class="correct-answer" style="display: none;">Correct Answer: joyful </label>
+        </div>
+
+        <div class="flashcard" onclick="flipCard(3)">
+            <p>3. What is the past tense of the verb "eat"</p>
+            <input type="radio" name="q3" value=" eaten" onclick="checkAnswer(3, ' eaten')">  eaten
+            <input type="radio" name="q3" value="ate " onclick="checkAnswer(3, 'ate ')"> ate 
+            <input type="radio" name="q3" value="eating" onclick="checkAnswer(3, 'eating')"> eating
+            <label id="answer3" class="correct-answer" style="display: none;">Correct Answer:ate  </label>
+           
+        </div>
+
+        <div class="flashcard" onclick="flipCard(4)">
+            <p>4.Choose the correct spelling: </p>
+            <input type="radio" name="q4" value="receive" onclick="checkAnswer(4, 'receive')">receive 
+            <input type="radio" name="q4" value=" recieve" onclick="checkAnswer(4, ' recieve')">  recieve
+            <input type="radio" name="q4" value="recive" onclick="checkAnswer(4, 'recive')"> recive
+            <label id="answer4" class="correct-answer" style="display: none;">Correct Answer: receive </label>
+            
+        </div>
+        
+        <div class="flashcard" onclick="flipCard(5)">
+            <p>5. Which word is a pronoun?</p>
+            <input type="radio" name="q5" value=" Tree" onclick="checkAnswer(5, ' Tree')"> Tree 
+            <input type="radio" name="q5" value="He" onclick="checkAnswer(5, 'He')">He 
+            <input type="radio" name="q5" value="Run" onclick="checkAnswer(5, 'Run')"> Run
+            <label id="answer5" class="correct-answer" style="display: none;">Correct Answer:He </label>
+          
+        </div>
+        
+        <div class="flashcard" onclick="flipCard(6)">
+            <p>6.Identify the antonym (opposite) of "brave."</p>
+            <input type="radio" name="q6" value="Courageous" onclick="checkAnswer(6, 'Courageous')"> Courageous
+            <input type="radio" name="q6" value="Fearful" onclick="checkAnswer(6, 'Fearful')"> Fearful
+            <input type="radio" name="q6" value="Strong" onclick="checkAnswer(6, 'Strong')"> Strong
+            <label id="answer6" class="correct-answer" style="display: none;">Correct Answer:Fearful </label>
+           
+        </div>
+        
+        <div class="flashcard" onclick="flipCard(7)">
+            <p>7. "The cat __________ on the windowsill.</p>
+            <input type="radio" name="q7" value="is laying" onclick="checkAnswer(7, 'is laying')"> is laying
+            <input type="radio" name="q7" value="is lying" onclick="checkAnswer(7, 'is lying')"> is lying
+            <input type="radio" name="q7" value="lies" onclick="checkAnswer(7, 'lies')"> lies
+            <label id="answer7" class="correct-answer" style="display: none;">Correct Answer: is lying</label>
+           
+        </div>
+        
+        <div class="flashcard" onclick="flipCard(8)">
+            <p>8. What is the comparative form of the adjective "happy"?</p>
+            <input type="radio" name="q8" value=" More happy" onclick="checkAnswer(8, ' More happy')">  More happy
+            <input type="radio" name="q8" value="Happyer" onclick="checkAnswer(8, 'Happyer')"> Happyer
+            <input type="radio" name="q8" value="Happiest" onclick="checkAnswer(8, 'Happiest')"> Happiest
+            <label id="answer8" class="correct-answer" style="display: none;">Correct Answer:  More happy</label>
+          
+        </div>
+        
+        <div class="flashcard" onclick="flipCard(9)">
+            <p>9. Which of the following is a conjunction?</p>
+            <input type="radio" name="q9" value="Quickly" onclick="checkAnswer(9, 'Quickly')"> Quickly
+            <input type="radio" name="q9" value="And" onclick="checkAnswer(9, 'And')"> And
+            <input type="radio" name="q9" value="Jumped" onclick="checkAnswer(9, 'Jumped')">Jumped 
+            <label id="answer9" class="correct-answer" style="display: none;">Correct Answer:And </label>
+            
+        </div>
+        
+        <div class="flashcard" onclick="flipCard(10)">
+            <p>10. Choose the correct spelling:</p>
+            <input type="radio" name="q10" value="Occasion" onclick="checkAnswer(10, 'Occasion')"> Occasion
+            <input type="radio" name="q10" value="Occassion" onclick="checkAnswer(10, 'Occassion')"> Occassion
+            <input type="radio" name="q10" value="Ocassion" onclick="checkAnswer(10, 'Ocassion')"> Ocassion
+            <label id="answer10" class="correct-answer" style="display: none;">Correct Answer:Ocassion </label>
+           
+        </div>
+        
+        <div class="flashcard" onclick="flipCard(11)">
+            <p>11. What is the plural form of "person"?</p>
+            <input type="radio" name="q11" value=" Persons" onclick="checkAnswer(11, ' Persons')">  Persons
+            <input type="radio" name="q11" value="People" onclick="checkAnswer(11, 'People')"> People
+            <input type="radio" name="q11" value="Peoples" onclick="checkAnswer(11, 'Peoples')"> Peoples
+            <label id="answer11" class="correct-answer" style="display: none;">Correct Answer:People </label>
+            
+        </div>
+        
+        <div class="flashcard" onclick="flipCard(12)">
+            <p>12.What does the acronym "NASA" stand for?</p>
+            <input type="radio" name="q12" value="North American Space Association" onclick="checkAnswer(12, 'North American Space Association')"> North American Space Association
+            <input type="radio" name="q12" value="National Aeronautics and Space Administration" onclick="checkAnswer(12, 'National Aeronautics and Space Administration')"> National Aeronautics and Space Administration
+            <input type="radio" name="q12" value="National Air and Space Alliance" onclick="checkAnswer(12, 'National Air and Space Alliance')"> National Air and Space Alliance
+            <label id="answer12" class="correct-answer" style="display: none;">Correct Answer: National Aeronautics and Space Administration</label>
+        
+        </div>
+        
+        <div class="flashcard" onclick="flipCard(13)">
+            <p>13. "The sun was shining, and the birds were singing."</p>
+            <input type="radio" name="q13" value=" sun" onclick="checkAnswer(13, ' sun')">  sun
+            <input type="radio" name="q13" value=" shining" onclick="checkAnswer(13, ' shining')">  shining
+            <input type="radio" name="q13" value=" and" onclick="checkAnswer(13, ' and')">  and
+            <label id="answer13" class="correct-answer" style="display: none;">Correct Answer: and </label>
+         
+        </div>
+        
+        <div class="flashcard" onclick="flipCard(14)">
+            <p>14. "The team of players _________ excited about the upcoming match."</p>
+            <input type="radio" name="q14" value="are" onclick="checkAnswer(14, 'are')"> are
+            <input type="radio" name="q14" value=" is" onclick="checkAnswer(14, ' is')">  is
+            <input type="radio" name="q14" value=" be" onclick="checkAnswer(14, ' be')">  be
+            <label id="answer14" class="correct-answer" style="display: none;">Correct Answer: is </label>
+           
+        </div>
+        
+        <div class="flashcard" onclick="flipCard(15)">
+            <p>15.What is the correct past participle of the verb "swim"? </p>
+            <input type="radio" name="q15" value="swam" onclick="checkAnswer(15, 'swam')">swam 
+            <input type="radio" name="q15" value="swum" onclick="checkAnswer(15, 'swum')">swum 
+            <input type="radio" name="q15" value="swimming" onclick="checkAnswer(15, 'swimming')">swimming
+            <label id="answer15" class="correct-answer" style="display: none;">Correct Answer:swum </label>
+            
+        </div>
+        
+        <div class="flashcard" onclick="flipCard(16)">
+            <p>16. Which of the following sentences is in the passive voice?</p>
+            <input type="radio" name="q16" value="The cat chased the mouse." onclick="checkAnswer(16, 'The cat chased the mouse.')"> The cat chased the mouse.
+            <input type="radio" name="q16" value=" The mouse was chased by the cat." onclick="checkAnswer(16, ' The mouse was chased by the cat.')">  The mouse was chased by the cat.
+            <input type="radio" name="q16" value=" The mouse and the cat played together." onclick="checkAnswer(16, ' The mouse and the cat played together.')">  The mouse and the cat played together.
+            <label id="answer16" class="correct-answer" style="display: none;">Correct Answer:  The mouse was chased by the cat.</label>
+            
+        </div>
+
+        <!-- Button to navigate to the next flashcard -->
+        <button onclick="nextCard()">Next</button>
+    </div>
+
+    <script>
+        // Track the current flashcard index
+        let currentCard = 0;
+        // Select all flashcards
+        const flashcards = document.querySelectorAll('.flashcard');
+
+        // Function to flip a flashcard
+        function flipCard(cardNumber) {
+            // Toggle the 'flipped' class to show the back of the card if needed
+            flashcards[cardNumber - 1].classList.toggle('flipped');
+        }
+
+        // Function to check the selected answer
+        function checkAnswer(cardNumber, selectedAnswer) {
+            // Get the correct answer label for the current flashcard
+            const correctAnswerLabel = document.getElementById(`answer${cardNumber}`);
+            // Display the correct answer
+            correctAnswerLabel.style.display = 'block';
+        }
+
+        // Function to navigate to the next flashcard
+        function nextCard() {
+            // Remove the 'active' class from the current flashcard
+            flashcards[currentCard].classList.remove('active');
+            // Update the currentCard index, ensuring it wraps around to 0 at the end
+            currentCard = (currentCard + 1) % flashcards.length;
+
+            // Handle the case when reaching the last flashcard
+            if (currentCard === 0) {
+                // Code to execute when all flashcards are shown
+                console.log('All flashcards shown');
+            }
+
+            // Add the 'active' class to the next flashcard
+            flashcards[currentCard].classList.add('active');
+        }
+    </script>
+</body>
+
+</html>

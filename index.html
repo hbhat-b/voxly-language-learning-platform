@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>VOXLY - Language Mastery</title>
+    <style>
+        body {
+            background-image: url('Images/bg.jpg');
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+        }
+        header img {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            height: 50px;
+            width: auto;
+            border-radius: 50%;
+            border: 4px solid rgb(209, 196, 196);
+          }
+    
+        .body-section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            color: #333;
+            position: relative;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        nav {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            background-color: #333;
+            padding: 10px;
+            z-index: 1000;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        nav a {
+            color: white;
+            margin-right: 15px;
+            text-decoration: none;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="Images/fox.jpg " width="30px" height="30px" alt="Fox Icon" />
+        <h1>Fluency, one tap away with VOXLY</h1>
+        <nav>
+            <button onclick="redirectToSignUp()">Login</button>
+        </nav>
+    </header>
+    <section class="body-section">
+        <h1>🎉Welcome to VOXLY: Your Gateway to Language Mastery!🚀</h1>
+
+        <p>
+            Unlock the power of language with VOXLY, your all-in-one language learning companion designed to help you excel in English proficiency. Whether you're aiming for academic success, career advancement, or simply enriching your communication skills, VOXLY is here to guide you on your language learning journey.
+        </p>
+    
+        <h2>🌟Why Choose VOXLY?</h2>
+    
+        <p>
+            <strong>Comprehensive Skill Development:</strong>
+            VOXLY is your holistic language learning solution, emphasizing speaking, reading, listening, and writing skills. Our meticulously crafted lessons and interactive exercises ensure a well-rounded language proficiency that goes beyond memorization.
+        </p>
+    
+        <h2>🚀Your Success, Our Mission</h2>
+    
+        <p>
+            At VOXLY, we believe that language learning is a journey of self-discovery and empowerment. With our innovative approach, cutting-edge technology, and a commitment to your success, VOXLY is not just an app; it's your partner in achieving language mastery.
+        </p>
+    
+        <p style="text-align: center;">
+            <strong>Start Your Journey with VOXLY Now!</strong>
+        </p>
+
+        <button onclick="redirectToSignUp()">Sign Up</button>
+    </section>
+    <script>
+        function redirectToSignUp() {
+            // Redirect to the sign-up page
+            window.location.href = 'signup.html'; // Replace 'signup.html' with the actual path to your sign-up page
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

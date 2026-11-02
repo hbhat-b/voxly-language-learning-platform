@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: url('Images/Db.jpg') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            color: #fff;
+        }
+
+        #navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            padding: 10px;
+        }
+
+        #navbar .menu-items {
+            display: flex;
+            align-items: center; /* Align items vertically */
+            background-color: #333;
+            padding: 10px;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        #navbar .menu-items p {
+            margin: 0; /* Remove default margin */
+            padding-right: 20px; /* Add padding for tab space */
+        }
+
+        #navbar .menu-items a {
+            margin: 0 15px;
+            display: block;
+            color: white;
+        }
+
+        #navbar .menu-items a.logout {
+            margin-left: auto; /* Move "Logout" to the right end */
+        }
+        
+
+        #avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        #body-content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .h2 {
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .dice-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .tile {
+            width: 250px;
+            height: 200px;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 10px;
+            cursor: pointer;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .tile h2 {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+            margin: 0;
+            color: black;
+        }
+
+        .tile:nth-child(1) {
+            background-image: url('Images/fox-reading.jpg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: justify;
+        }
+
+        .tile:nth-child(2) {
+            background-image: url('Images/writing.jpg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: justify;
+        }
+
+        .tile:nth-child(3) {
+            background-image: url('Images/listening.jpg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: justify;
+        }
+
+        .tile:nth-child(4) {
+            background-image: url('Images/fox-speaking.jpg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: justify;
+        }
+
+        .tile:nth-child(5) {
+            background-image: url('Images/testing.jpg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: justify;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navbar">
+        <div class="menu-items">
+            <p>Name of the User</p>
+            <a href="profile.html">Profile</a>
+            <a href="additional-resources.html">Additional Resources</a>
+            <a href="logout.html" class="logout">Logout</a>
+        </div>
+        <div id="avatar"></div>
+    </div>
+
+    <div id="body-content">
+        <div class="dice-container">
+            <a href="reading.html" class="tile">
+                <h2>Reading</h2>
+            </a>
+            <a href="writing.html" class="tile">
+                <h2>Writing</h2>
+            </a>
+            <a href="listening.html" class="tile">
+                <h2>Listening</h2>
+            </a>
+            <a href="speaking.html" class="tile">
+                <h2>Speaking</h2>
+            </a>
+            <a href="quiz.html" class="tile">
+                <h2>Quiz</h2>
+            </a>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+
+
